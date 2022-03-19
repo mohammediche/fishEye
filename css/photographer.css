@@ -1,0 +1,159 @@
+#main{
+    margin: 30px 100px;
+}
+/** header photographer (about)  **/
+.aboutPhotographer h1{
+    font-size: 64px;
+    color: #D3573C;
+}
+.aboutPhotographer h2{
+    font-size: 24px; 
+    color: #901C1C;
+    margin-bottom: 25px;
+}
+.aboutPhotographer strong{
+    color: #525252;
+    font-size: 18px;
+}
+/******  les media  ******/
+.allMedia{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+}
+.articleMedia{
+    width: 350px;
+}
+.displayTitleLikes{
+    display: flex;
+    justify-content: space-between;
+}
+.mediaImage{
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.displayTitleLikes h3{
+    font-size: 24px;
+}
+
+
+
+
+/*** aside ou se trouve les likes total / prix par jour ***/
+aside{
+    width: 376px;
+    display: flex;
+    background: #DB8876;
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 36px;
+    padding: 15px 0;
+    font-size: 24px;
+}
+
+/** Contact popup/modal **/
+#contact_modal {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: #000000b3;
+}
+
+.info-photograph-header {
+    position: relative;
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 30px 0px;
+    border-radius: 5px;
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.photograph-header .contact_button{
+    position: absolute;
+    left: 43%;
+    top: 48%;
+}
+.contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+    margin: auto;
+}
+
+.meContacter {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.meContacter img {
+    cursor: pointer;
+}
+
+.meContacter h2 {
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: #312E2E;
+    font-size: 36px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+form input {
+    font-size: 22px;
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+.messageForm{
+    font-size: 22px;
+    width: 100%;
+    height: 170px;
+    resize: none;
+    padding: 8px;
+}
