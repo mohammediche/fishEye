@@ -1,49 +1,185 @@
-#main{
+#main {
     margin: 30px 100px;
 }
+
 /** header photographer (about)  **/
-.aboutPhotographer h1{
+.aboutPhotographer h1 {
     font-size: 64px;
     color: #D3573C;
 }
-.aboutPhotographer h2{
-    font-size: 24px; 
+
+.aboutPhotographer h2 {
+    font-size: 24px;
     color: #901C1C;
     margin-bottom: 25px;
 }
-.aboutPhotographer strong{
+
+.aboutPhotographer strong {
     color: #525252;
     font-size: 18px;
 }
+
+/********** Trier par  ************/
+.widget {
+    display: flex;
+    align-items: center;
+    left: 6.0625rem;
+    margin-bottom: 1.5625rem;
+    position: absolute;
+    top: 28.625rem;
+    z-index: 5;
+}
+
+.widget label {
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+#popularite {
+    height: 0;
+    left: -5000em;
+    overflow: hidden;
+    position: absolute;
+}
+
+/*le select personnalisé*/
+
+.select {
+    display: flex;
+    align-items: center;
+    background-color: #901c1c;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    height: 3.75rem;
+    margin-left: 1.5625rem;
+    position: relative;
+    width: 10.625rem;
+}
+
+.select .value {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-left: 1.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.select .optList {
+    background: #901c1c;
+    border-radius: 0.4em 0.4em 0.4em 0.4em;
+    border-top-width: 0.1em;
+    box-shadow: 0 0.2em 0.4em rgb(0 0 0 / 40%);
+    box-sizing: border-box;
+    font-size: 1.125rem;
+    height: 10.625rem;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    max-height: 10em;
+    min-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.select .optList.hidden {
+    max-height: 0;
+    visibility: hidden;
+}
+
+.select .optList .option {
+    align-items: center;
+    border-top: 1px solid #fff;
+    display: flex;
+    font-weight: 700;
+    height: 33.33%;
+    margin: -2px 10px;
+    padding-left: 10px;
+}
+
+.optList .option:hover {
+    background: #9e4343;
+}
+
+/* .select .highlight {
+    background: #d3573c;
+    border-radius: 5px;
+    color: #fff;
+} */
+
+.select:after {
+    content: "\f078";
+    font-family: Font Awesome\ 5 Free;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    margin-right: 1.125rem;
+    transform: rotate(0);
+    transition: 200ms;
+    z-index: 5;
+    transform: rotate(0deg);
+}
+
+.active:after {
+    transform: rotate(180deg);
+}
+
+
+/****** fin trier par ******/
+
 /******  les media  ******/
-.allMedia{
+.allMedia {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 25px;
+    margin-top: 30px;
 }
-.articleMedia{
+
+.articleMedia {
     width: 350px;
 }
-.displayTitleLikes{
+
+.displayTitleLikes {
     display: flex;
     justify-content: space-between;
 }
-.mediaImage{
+
+.display {
+    display: flex;
+    align-items: center;
+}
+
+.mediaImage {
     width: 100%;
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
+    cursor: pointer;
 }
-.displayTitleLikes h3{
+
+.displayTitleLikes h3 {
     font-size: 24px;
+}
+
+/*button like*/
+.likeButton {
+    cursor: pointer;
 }
 
 
 
 
 /*** aside ou se trouve les likes total / prix par jour ***/
-aside{
+aside {
     width: 376px;
     display: flex;
     background: #DB8876;
@@ -57,31 +193,24 @@ aside{
     font-size: 24px;
 }
 
-/** Contact popup/modal **/
-#contact_modal {
-    display: none;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    background: #000000b3;
-}
-
 .info-photograph-header {
     position: relative;
     background-color: #FAFAFA;
     height: 300px;
-    margin: 30px 0px;
+    margin: 30px 0px 130px 0;
     border-radius: 5px;
     padding: 0px 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.photograph-header .contact_button{
+
+.photograph-header .contact_button {
     position: absolute;
     left: 43%;
     top: 48%;
 }
+
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -93,6 +222,15 @@ aside{
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/** Contact popup/modal **/
+#contact_modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #000000b3;
 }
 
 .modal {
@@ -150,7 +288,8 @@ form input {
     border-radius: 5px;
     padding: 0 8px;
 }
-.messageForm{
+
+.messageForm {
     font-size: 22px;
     width: 100%;
     height: 170px;

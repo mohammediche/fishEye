@@ -1,17 +1,19 @@
-    async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
-        
-       const response = await fetch("/data/FishEyeData.json");
+async function getPhotographers() {
+
+       const response = await fetch("/data/photographers.json");
        const results = await response.json();
        
        return results;
-
     }
+    // une boucle for, récupéré les likes de chaque image.
+    // trier les likes du plus grand au plus petit
+    
 
-    async function displayData(photographers) {
+     function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
         photographers.forEach((photographer) => {
+            console.log(photographer);
     
             const photographerModel = photographerFactory(photographer);
             const templatePhotographer = photographerModel.getUserCardDOM();

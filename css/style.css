@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 @import url("photographer.css");
+@import url("mediaModal.css");
 
 *{
     padding: 0;
@@ -7,6 +8,9 @@
 }
 body {
     font-family: "DM Sans", sans-serif;
+}
+li{
+    list-style-type: none;
 }
 a{
     text-decoration: none;

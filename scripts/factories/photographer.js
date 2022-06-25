@@ -1,23 +1,32 @@
- function photographerFactory(data) {
-    const { id,price,tagline,city,country,name, portrait } = data;
-    console.log(data);
+function photographerFactory(photographers) {
+    const { price,tagline,city,country,name, portrait } = photographers;
 
-    const picture = `assets/images/Sample Photos/Photographers ID Photos/${portrait}`;
+    // const picture = `assets/images/Sample Photos/Photographers ID Photos/${portrait}`;
+    const profilPictures = "assets/images/Sample Photos/Photographers ID Photos/";
 
-    function getUserCardDOM() {
-        const article = document.createElement("article");
-        let template = `   
-        <a href = "./photographer.html?key=${id}" class = "centerImageLink">  
-           <img class="imagePhotographer" src = "${picture}">
-           <h2 class="nameOfPhotographer">${name}</h2>
-        </a>  
-           <h3 class="location">${city+ ", "  +country}</h3>
-           <strong>${tagline}</strong>
-           <span class = "prixParJour">${price}"€/jour"</span>
-        `;
-        article.innerHTML = template;
-        return article;
+    function getDataPhotographer() {
+        const div = document.createElement("div");
+        div.className = "info-photograph-header";
+        let template = `
+    
+            <div class="aboutPhotographer">
+              <h1>${name}</h1>
+              <h2 class="location">${city+ ", "  +country}</h2>
+              <strong>${tagline}</strong>
+            </div>  
+            
+          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <img class= "imagePhotographer" src= "${profilPictures+portrait}" alt="${name}">
+
+            <aside>
+            <span>230 404♥︎</span>
+            <span>${price}€/jour</span>
+            </aside>
+
+      `
+        div.innerHTML = template;
+        return div;
     }
-    return { id, price,tagline, city, country, name, picture, getUserCardDOM }
+    return { price,tagline, city, country, name, portrait, getDataPhotographer }
     
 }
