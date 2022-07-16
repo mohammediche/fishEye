@@ -1,16 +1,16 @@
 
 
-const likeMedia = (e)=>{
+const likeMedia = (likes)=>{
     const likeButton = document.querySelector(".likeButton");
-    const test = document.querySelector(".nombreDeLikeMedia");
-    console.log(test);
-    console.log(likeButton);
+    const nombreDeLikeMedia = document.querySelector(".nombreDeLikeMedia");
+    console.log(nombreDeLikeMedia);
 
 
-    //  if (likes === p.textContent) {
-    //     p.textContent = likes++;
+
+    //  if (likes === nombreDeLikeMedia.textContent) {
+    //     nombreDeLikeMedia.textContent = likes++;
     //  } else {
-    //     p.textContent = likes--;
+    //     nombreDeLikeMedia.textContent = likes--;
     //  }
  
     

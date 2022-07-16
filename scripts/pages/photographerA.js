@@ -51,18 +51,6 @@ const getMediaByPhotographerId = async (id, triPar)=>{
     const filterMedia = media.filter((media)=>{       
         return media.photographerId == id;
     })
-    /***/ 
-    const filterPhotographer = photographers.filter ((photographer)=>{
-        return photographer.id == id  
-    })[0]
-
-     filterMedia.forEach(mediaOfPhotographer => {
-        const mediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
-        const templateMedia = mediaModel.getMediaPhotographer();
-        allMedia.appendChild(templateMedia);
-     })
-     console.log(filterMedia);
-    /***/
     
     if (triPar === "Date") {
 

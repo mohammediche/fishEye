@@ -13,12 +13,11 @@ const refreshMediaList = async (valueSelected)=> {
 
     const media = await getMediaByPhotographerId(idPhotographer, valueSelected);
     console.log(media);
-
     selected.innerHTML = valueSelected;
     return media;
 
 }
-// console.log(selected);
+
 
 
 
