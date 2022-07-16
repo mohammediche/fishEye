@@ -25,9 +25,9 @@ const displayData = async (photographers, media)=>{
     })
     /** tri select **/
     // getMediaData(filterMedia);
-    triParPopularite(filterMedia);
-    trieParTitre(filterMedia);
-    trieParDate(filterMedia);
+    // triParPopularite(filterMedia);
+    // trieParTitre(filterMedia);
+    // trieParDate(filterMedia);
     /****************/
    
     filterMedia.forEach(mediaOfPhotographer => {
@@ -41,10 +41,49 @@ const displayData = async (photographers, media)=>{
       
         
     });
-
-     
-    
+ 
  }
+ // recup des media d'un photographe 
+const getMediaByPhotographerId = async (id, triPar)=>{
+    const { photographers,media  } = await fetchPhotographers();
+
+ 
+    const filterMedia = media.filter((media)=>{       
+        return media.photographerId == id;
+    })
+    /***/ 
+    const filterPhotographer = photographers.filter ((photographer)=>{
+        return photographer.id == id  
+    })[0]
+
+     filterMedia.forEach(mediaOfPhotographer => {
+        const mediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
+        const templateMedia = mediaModel.getMediaPhotographer();
+        allMedia.appendChild(templateMedia);
+     })
+     console.log(filterMedia);
+    /***/
+    
+    if (triPar === "Date") {
+
+        return filterMedia.sort((a, b)=>{
+            return a.date < b.date? 1: -1;
+        })
+
+    }else if (triPar === "Titre"){
+
+        return filterMedia.sort((a,b)=>{
+            return a.title > b.title? 1: -1;
+      })
+
+    }else{
+
+        return filterMedia.sort((a,b)=>{
+            return b.likes - a.likes  
+        })
+    }
+    
+}
 
  const init = async ()=> {
     // Récupère les datas des photographes

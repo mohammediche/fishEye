@@ -35,8 +35,8 @@ const mediaFactory = (media, nameOfPhotographer)=>{
          
              <h3>${title}</h3>
              <div class= "display">
-               <p>${likes}</p>
-               <button class="likeButton" type="button" onclick="likeMedia(${likes})">♡</button>
+               <p class= "nombreDeLikeMedia">${likes}</p>
+               <button class="likeButton" type="button" onclick="likeMedia()">♡</button>
              </div>        
 
            `

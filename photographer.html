@@ -27,18 +27,16 @@
         </select>
         <div class="select" tabindex="0" id="select" role="listbox" aria-label="Toggle blue light"
           onclick="openSelectTri()">
-          <!-- Ce containeur sera utilisé pour afficher la valeur courante du widget -->
-          <span class="value">Popularité</span>
+          <!-- Ce span sera utilisé pour afficher la valeur courante du widget -->
+          <span class="value"> </span>
           <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
           Comme c'est une liste, il y sens à utiliser l'élément ul. -->
           <ul class="optList hidden" role="presentation">
-            <!-- Chaque option ne contient que la valeur à afficher, Nous verrons plus loin
-            comment gérer la valeur réelle qui sera envoyée avec les données du formulaire -->
-            <li class="option" onclick="triParPopularite()" role="option" aria-label="Popularité">Popularité
+
+            <li class="option" onclick="refreshMediaList('Popularité')" role="option" aria-label="Popularité">Popularité
             </li>
-            <li class="option" onclick="trieParDate()" role="option" aria-label="Date">
-              Date</li>
-            <li class="option" onclick="trieParTitre()" role="option" aria-label="Titre">Titre</li>
+            <li class="option" onclick="refreshMediaList('Date')" role="option" aria-label="Date">Date</li>
+            <li class="option" onclick="refreshMediaList('Titre')" role="option" aria-label="Titre">Titre</li>
           </ul>
         </div>
       </div>
@@ -77,11 +75,11 @@
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/tri.js"></script>
   <script src="/scripts/utils/lightbox.js"></script>
-  <script src="/scripts/utils/like.js"></script>
   <!-- <script src="./scripts/pages/photographer.js"></script> -->
   <script src="./scripts/pages/photographerA.js"></script>
   <script src="./scripts/factories/photographer.js"></script>
   <script src="./scripts/factories/media.js"></script>
+  <script src="/scripts/utils/like.js"></script>
   <script src="./scripts/factories/lightbox.js"></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"

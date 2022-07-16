@@ -142,6 +142,7 @@
     justify-content: space-evenly;
     gap: 25px;
     margin-top: 30px;
+    margin-bottom: 90px;
 }
 
 .articleMedia {
@@ -229,14 +230,17 @@ aside {
     display: none;
     position: fixed;
     width: 100%;
+    height: 100%;
     top: 0;
     background: #000000b3;
+    z-index: 99;
 }
 
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 669px;
+    /*50%*/
     display: flex;
     flex-direction: column;
     align-items: center;

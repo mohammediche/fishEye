@@ -12,7 +12,7 @@
         </a>  
            <h3 class="location">${city+ ", "  +country}</h3>
            <strong>${tagline}</strong>
-           <span class = "prixParJour">${price}"€/jour"</span>
+           <span class = "prixParJour">${price}€/jour</span>
         `;
         article.innerHTML = template;
         return article;
