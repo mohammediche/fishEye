@@ -1,11 +1,11 @@
 const mediaFactory = (media, nameOfPhotographer)=>{
-   const { title, likes, image, video } = media;
+   const { title, likes, image, video, id } = media;
+  
 
- 
    const name = nameOfPhotographer;
    const mediaPictures = "assets/images/Sample Photos/";
 
-   const getMediaPhotographer = ()=>{
+   const afficheMediaPhotographer = ()=>{
        const article = document.createElement("article");
        article.className = "articleMedia";
        /*Affiche moi une video, sinon on affiche une image*/
@@ -35,8 +35,7 @@ const mediaFactory = (media, nameOfPhotographer)=>{
          
              <h3>${title}</h3>
              <div class= "display">
-               <p class= "nombreDeLikeMedia">${likes}</p>
-               <button class="likeButton" type="button" onclick="likeMedia()">♡</button>
+               <button class="likeButton" id=${id} type="button" onclick= "likeMedia(${id})">${likes}</button>
              </div>        
 
            `
@@ -47,7 +46,7 @@ const mediaFactory = (media, nameOfPhotographer)=>{
         
      
    }
-   return {name,title, likes, image, video, getMediaPhotographer};
+   return {name,title, likes, image, video, afficheMediaPhotographer};
 }
 
 

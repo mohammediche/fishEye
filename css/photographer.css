@@ -27,7 +27,6 @@
     margin-bottom: 1.5625rem;
     position: absolute;
     top: 28.625rem;
-    z-index: 5;
 }
 
 .widget label {
@@ -171,11 +170,25 @@
     font-size: 24px;
 }
 
-/*button like*/
+/*** like button ***/
 .likeButton {
     cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 24px;
 }
 
+.likeButton::after {
+    content: "\f004";
+    font-family: Font Awesome\ 5 Free;
+    margin-left: 6.38px;
+}
+
+/** like active **/
+.mediaLiked {
+    font-weight: 700;
+    color: #901c1c;
+}
 
 
 

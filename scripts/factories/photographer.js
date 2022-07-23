@@ -1,7 +1,16 @@
-function photographerFactory(photographers) {
+function photographerFactory(photographers, filterMedia) {
     const { price,tagline,city,country,name, portrait } = photographers;
 
-    // const picture = `assets/images/Sample Photos/Photographers ID Photos/${portrait}`;
+
+    /** On récupére les likes des media d'un photographe, et on les addtionne pour avoir le total **/
+    let table = [];
+    for (const iterator of filterMedia) {
+      table.push(iterator.likes)
+    }
+    const reducer = (nombreA, nombreB) => nombreA + nombreB;
+    const totalLikes = table.reduce(reducer);
+    /***/
+
     const profilPictures = "assets/images/Sample Photos/Photographers ID Photos/";
 
     function getDataPhotographer() {
@@ -19,7 +28,7 @@ function photographerFactory(photographers) {
             <img class= "imagePhotographer" src= "${profilPictures+portrait}" alt="${name}">
 
             <aside>
-            <span>230 404♥︎</span>
+            <span><strong class= "totalLikes">${totalLikes}</strong>♥︎</span>
             <span>${price}€/jour</span>
             </aside>
 

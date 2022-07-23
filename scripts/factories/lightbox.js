@@ -10,7 +10,7 @@ const lightboxFactory = (media, nameOfPhotographer)=>{
       
       if (video) {
           const videoContent = document.createElement("video");
-          videoContent.className = "test";
+          videoContent.className = "videoModal";
           videoContent.type = "video/mp4"
           // videoContent.src = mediaPictures+name+"/"+video;
 

@@ -1,17 +1,18 @@
 
+const likeMedia = (id)=>{
+  
+    const totalLikes = document.querySelector(".totalLikes");
+    const like = document.getElementById(id);
 
-const likeMedia = (likes)=>{
-    const likeButton = document.querySelector(".likeButton");
-    const nombreDeLikeMedia = document.querySelector(".nombreDeLikeMedia");
-    console.log(nombreDeLikeMedia);
+    like.classList.toggle("mediaLiked");       
 
-
-
-    //  if (likes === nombreDeLikeMedia.textContent) {
-    //     nombreDeLikeMedia.textContent = likes++;
-    //  } else {
-    //     nombreDeLikeMedia.textContent = likes--;
-    //  }
- 
+    if (document.querySelector(".mediaLiked")) {
+        like.textContent++;
+        totalLikes.textContent++;
+    } else {
+        like.textContent--;
+        totalLikes.textContent--;
+    }
     
 }
+

@@ -5,9 +5,6 @@ async function getPhotographers() {
        
        return results;
     }
-    // une boucle for, récupéré les likes de chaque image.
-    // trier les likes du plus grand au plus petit
-    
 
      function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
