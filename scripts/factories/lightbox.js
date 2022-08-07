@@ -4,6 +4,7 @@ const lightboxFactory = (media, nameOfPhotographer)=>{
   const mediaPictures = "assets/images/Sample Photos/";
   // console.log(media);
 
+
   const getlightbox = ()=>{
       const div = document.createElement("div");
       div.className = "media";
@@ -11,7 +12,8 @@ const lightboxFactory = (media, nameOfPhotographer)=>{
       if (video) {
           const videoContent = document.createElement("video");
           videoContent.className = "videoModal";
-          videoContent.type = "video/mp4"
+          videoContent.setAttribute("alt", title);
+          videoContent.type = "video/mp4";
           // videoContent.src = mediaPictures+name+"/"+video;
 
           div.appendChild(videoContent)
@@ -19,7 +21,7 @@ const lightboxFactory = (media, nameOfPhotographer)=>{
       } else {
         const img = document.createElement("img");
         img.className = "imageModal";
-        img.alt = title;
+        img.setAttribute("alt", title);
         // img.src = mediaPictures+name+"/"+image;
 
         div.appendChild(img);

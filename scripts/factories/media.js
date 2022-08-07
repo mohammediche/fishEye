@@ -2,6 +2,7 @@ const mediaFactory = (media, nameOfPhotographer)=>{
    const { title, likes, image, video, id } = media;
   
 
+
    const name = nameOfPhotographer;
    const mediaPictures = "assets/images/Sample Photos/";
 
@@ -14,7 +15,8 @@ const mediaFactory = (media, nameOfPhotographer)=>{
         const videoContent = document.createElement("video");
         videoContent.className = "mediaImage";
         videoContent.src = mediaPictures+name+"/"+video;
-        videoContent.setAttribute('onclick', "showMediaModal(this)");
+        videoContent.setAttribute("alt", title);
+        videoContent.setAttribute("onclick","showMediaModal(this)");
         
         article.appendChild(videoContent); 
 
@@ -23,7 +25,8 @@ const mediaFactory = (media, nameOfPhotographer)=>{
         const img = document.createElement("img");
         img.className = "mediaImage";
         img.src = mediaPictures+name+"/"+image;
-        img.setAttribute('onclick', "showMediaModal(this)")
+        img.setAttribute("alt", title);
+        img.setAttribute("onclick", "showMediaModal(this)");
        
         article.appendChild(img); 
           

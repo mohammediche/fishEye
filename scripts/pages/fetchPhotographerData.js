@@ -30,6 +30,9 @@ const displayData = async (photographers, media)=>{
     })
     /****************/
 
+    for (let index = 0; index < trierParPopulariteParDefaut.length; index++) {
+        const element = trierParPopulariteParDefaut[index];
+       }
     
     trierParPopulariteParDefaut.forEach(mediaOfPhotographer => {
         const mediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
@@ -45,6 +48,7 @@ const displayData = async (photographers, media)=>{
 
  
  }
+ 
  // recup des media d'un photographe 
 const getMediaByPhotographerId = async (id, triPar)=>{
     const { photographers,media  } = await fetchPhotographers();
