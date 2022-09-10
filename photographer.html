@@ -12,7 +12,7 @@
 
 <body>
   <header>
-    <a href="./index.html"><img src="assets/images/logo.png" class="logo" alt="logo FishEye" /></a>
+    <a href="./index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" /></a>
   </header>
   <main id="main">
     <div class="photograph-header"> </div>
@@ -25,25 +25,25 @@
           <option>Date</option>
           <option>Titre</option>
         </select>
-        <div class="select" tabindex="0" id="select" role="listbox" aria-label="Toggle blue light"
-          onclick="openSelectTri()">
+        <div class="select" tabindex="0" id="select" role="button" aria-haspopup="listbox" onclick="openSelectTri()">
           <!-- Ce span sera utilisé pour afficher la valeur courante du widget -->
           <span class="value"> </span>
           <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
           Comme c'est une liste, il y sens à utiliser l'élément ul. -->
-          <ul class="optList hidden" role="presentation">
+          <ul class="optList hidden" role="listbox" aria-labelledby="OrderBy">
 
-            <li class="option" onclick="refreshMediaList('Popularité')" role="option" aria-label="Popularité">Popularité
+            <li class="option" onclick="refreshMediaList('Popularité')" tabindex="0" role="option" >Popularité
             </li>
-            <li class="option" onclick="refreshMediaList('Date')" role="option" aria-label="Date">Date</li>
-            <li class="option" onclick="refreshMediaList('Titre')" role="option" aria-label="Titre">Titre</li>
+            <li class="option" onclick="refreshMediaList('Date')"  tabindex="0" role="option" >Date</li>
+            <li class="option" onclick="refreshMediaList('Titre')"  tabindex="0" role="option" >Titre</li>
           </ul>
         </div>
       </div>
     </div>
 
     <section class="allMedia"></section>
-    <section id="mediaModal"></section>
+    <section id="mediaModal">
+    </section>
 
   </main>
 
@@ -51,21 +51,34 @@
   <div id="contact_modal">
     <div class="modal">
       <div class="meContacter">
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <h2 class="namePhotographerContact"></h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="fermer la modale" />
       </div>
-      <form>
-        <div>
-          <label for="prenom">Prénom</label>
-          <input type="text" id="prenom" />
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" />
-          <label for="email">Email</label>
-          <input type="email" id="email" />
-          <label for="message">Message</label>
-          <textarea class="messageForm" name="message" id="message"></textarea>
+      <!-- novalidate sert à désactiver les messages d'erreurs auto-->
+      <form name="formulaire" id="form-submit" novalidate>
+
+        <div class="formData" data-error=" erreur, veuillez indiqué...">
+          <label for="firstName">Prénom</label>
+          <input class="text-control" type="text" id="firstName" name="firstName" placeholder="Votre prénom"
+            aria-labelledby="FirstName contact" aria-required="true" />
         </div>
-        <button class="contact_button">Envoyer</button>
+        <div class="formData" data-error=" erreur, veuillez indiqué...">
+          <label for="lastName">Nom</label>
+          <input class="text-control" type="text" id="lastName" name="lastName" placeholder="Votre nom"
+            aria-labelledby="LastName contact" aria-required="true" />
+        </div>
+        <div class="formData" data-error=" erreur, veuillez indiqué...">
+          <label for="email">Email</label>
+          <input class="text-control" type="email" id="email" name="email" placeholder="pseudo@exemple.com"
+            aria-labelledby="Email contact" aria-required="true" />
+        </div>
+        <div class="formData" data-error=" erreur, veuillez indiqué...">
+          <label for="message">Message</label>
+          <textarea class="messageForm text-control" name="message" id="message" placeholder="Votre message"
+            aria-required="true"></textarea>
+        </div>
+
+        <button class="sendForm" aria-labelledby="envoyer le formulaire" type="submit">Envoyer</button>
       </form>
     </div>
   </div>

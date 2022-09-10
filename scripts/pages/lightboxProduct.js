@@ -1,64 +1,151 @@
 const mediaModal = document.querySelector("#mediaModal");
+const body = document.querySelector("body");
+const mediaOfPhotographer = document.querySelector(".allMedia");
+const photographHeader = document.querySelector(".photograph-header");
+const widget = document.querySelector(".widget");
 
 /* show & hide media modal */
-/*const showMediaModal= (element)=>{
-    mediaModal.style.display = "block";
-    // document.querySelector(".imageModal").src = element.src;
-    const video = document.querySelector(".videoModal");
-    const image = document.querySelector(".imageModal");
+const showMediaModal = (idPictureSelected) => {
+  mediaModal.style.display = "block";
+  /** display none le contenu en dessous */
+  photographHeader.style.display = "none";
+  widget.style.display = "none";
+  mediaOfPhotographer.style.display = "none";
+  /****/
+  const getAllMedia = document.querySelectorAll(".media");
 
-    console.log(video);
-    if ( video.alt === element.alt ) {
-        video.src = element.src;
-        
-    } else{
-        image.src = element.src; 
+  for (let index = 0; index < getAllMedia.length; index++) {
+    const media = getAllMedia[index];
+
+    const idOfMedia = parseInt(media.dataset.index);
+
+    // affiche la media selectionné, et display none le reste des medias
+    if (idOfMedia === idPictureSelected) {
+      media.style.display = "flex";
+      body.style.overflow = "hidden";
+    } else {
+      media.style.display = "none";
     }
- 
-    // console.log(document.querySelector(".imageTest").src);
+    // prev and next media
+    const prevMedia = media.querySelector(".left-arrow");
+    const nextMedia = media.querySelector(".right-arrow");
 
-}*/
-const hideMediaModal= ()=>{
-    mediaModal.style.display = "none";
+    prevMedia.onclick = () => {
+      let prevIndexMedia;
+      if (index == 0) {
+        prevIndexMedia = getAllMedia.length - 1;
+      } else {
+        prevIndexMedia = parseInt(index) - 1;
+      }
+      const idPrevMedia = parseInt(getAllMedia[prevIndexMedia].dataset.index);
+      showMediaModal(idPrevMedia);
+    };
+    nextMedia.onclick = () => {
+      let nextIndexMedia;
+      if (index == getAllMedia.length - 1) {
+        nextIndexMedia = 0;
+      } else {
+        nextIndexMedia = parseInt(index) + 1;
+      }
+      const idNextMedia = parseInt(getAllMedia[nextIndexMedia].dataset.index);
+      showMediaModal(idNextMedia);
+    };
 
-}
-//
-// const test = async ()=>{
-//     const response = await fetch("/data/photographers.json");
-//     const results = await response.json();
-//     const {photographers, media} = results;
-    
-    
-//     const filterMedia = media.filter((media)=>{       
-//         return media.photographerId == id;
-//     })
-//     console.log(filterMedia);
-// }
-const showMediaModal = ()=>{
-    const articleMedia = document.querySelectorAll(".articleMedia");
-    
-    for (let i = 0; i < articleMedia.length; i++) {
-        let newIndex = i;  
-        let clickedImageIndex;
-        /** onclick image */   
-        articleMedia[index].onclick = ()=>{
-            clickedImageIndex = i;
-            function preview(){
-                let imageURL = articleMedia[newIndex].querySelector("img").src;
-            }
+    ///////// onkeydown prev/next media modal with leftArrow / rightArrow ///////////
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "ArrowLeft") {
+        // console.log(idPictureSelected);
+        // let prevIndexMedia;
+        // if (index == 0) {
+        //   prevIndexMedia = getAllMedia.length - 1;
+        // } else {
+        //   prevIndexMedia = parseInt(index) - 1;
+        // }
+        if (idOfMedia === idPictureSelected) {
+          console.log("index", index);
+          let prevIndexMedia;
+          if (index == 0) {
+            prevIndexMedia = getAllMedia.length - 1;
+          } else {
+            prevIndexMedia = parseInt(index) - 1;
+          }
+          const idPrevMedia = parseInt(
+            getAllMedia[prevIndexMedia].dataset.index
+          );
+          showMediaModal(idPrevMedia);
         }
+        //
+        // const idPrevMedia = parseInt(getAllMedia[prevIndexMedia].dataset.index);
+        // showMediaModal(idPrevMedia);
+      } else if (e.code === "ArrowRight") {
+        if (idOfMedia === idPictureSelected) {
+          console.log("index", index);
+          let nextIndexMedia;
+          if (index == getAllMedia.length - 1) {
+            nextIndexMedia = 0;
+          } else {
+            nextIndexMedia = parseInt(index) + 1;
+          }
+          const idPrevMedia = parseInt(
+            getAllMedia[nextIndexMedia].dataset.index
+          );
+          showMediaModal(idPrevMedia);
+        }
+      }
+    });
+  }
+  ///////// Escape button to close modal
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      mediaModal.style.display = "none";
+      body.style.overflow = "visible";
+      /** réapparaître le contenu en dessous de la modal une fois fermé */
+      photographHeader.style.display = "block";
+      widget.style.display = "flex";
+      mediaOfPhotographer.style.display = "flex";
     }
-}
-/*window.onload = ()=>{
-    const articleMedia = document.querySelectorAll(".articleMedia");
-    console.log("hello people !");
-     console.log(articleMedia);
-    //  for (let index = 0; index < articleMedia.length; index++) {
-    //     const element = articleMedia[index];
-    //     return console.log(element);
-        
-    //  }
-}*/
+  });
+  ///////// onkeydown prev/next media modal with leftArrow / rightArrow ///////////
+  // window.addEventListener("keydown", (e) => {
+  //   if (e.code === "ArrowLeft") {
+  //     for (let index = 0; index < getAllMedia.length; index++) {
+  //       const media = getAllMedia[index];
 
+  //       const idOfMedia = parseInt(media.dataset.index);
 
+  //       // affiche la media selectionné, et display none le reste des medias
+  //       if (idOfMedia === idPictureSelected) {
+  //         console.log("index", index);
+  //         let prevIndexMedia;
+  //         if (index == 0) {
+  //           prevIndexMedia = getAllMedia.length - 1;
+  //         } else {
+  //           prevIndexMedia = parseInt(index) - 1;
+  //         }
+  //         const idPrevMedia = parseInt(
+  //           getAllMedia[prevIndexMedia].dataset.index
+  //         );
+  //         showMediaModal(idPrevMedia);
+  //       }
+  //     }
+  //   } else if (e.code === "ArrowRight") {
+  //     let nextIndexMedia;
+  //     if (index == getAllMedia.length - 1) {
+  //       nextIndexMedia = 0;
+  //     } else {
+  //       nextIndexMedia = parseInt(index) + 1;
+  //     }
+  //     const idNextMedia = parseInt(getAllMedia[nextIndexMedia].dataset.index);
+  //     showMediaModal(idNextMedia);
+  //   }
+  // });
+};
 
+const hideMediaModal = () => {
+  mediaModal.style.display = "none";
+  body.style.overflow = "visible";
+  /** réapparaître le contenu en dessous de la modal une fois fermé */
+  photographHeader.style.display = "block";
+  widget.style.display = "flex";
+  mediaOfPhotographer.style.display = "flex";
+};
