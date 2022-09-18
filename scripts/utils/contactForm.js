@@ -5,6 +5,7 @@ const allBody = document.querySelector("body");
 const displayModal = () => {
   modal.style.display = "block";
   allBody.style.overflow = "hidden";
+  document.getElementById("firstName").focus();
 };
 
 const closeModal = () => {
@@ -85,13 +86,13 @@ const formValid = () => {
   let isValid;
 
   // prénom
-  isValidateFirsName = firstNameValidation(inputs["firstName"]);
+  let isValidateFirsName = firstNameValidation(inputs["firstName"]);
   // nom
-  isValidateLastName = lastNameValidation(inputs["lastName"]);
+  let isValidateLastName = lastNameValidation(inputs["lastName"]);
   //email
-  isValidateEmail = emailValidation(inputs["email"]);
+  let isValidateEmail = emailValidation(inputs["email"]);
   //birthday
-  isValidateMessage = messageValidation(inputs["message"]);
+  let isValidateMessage = messageValidation(inputs["message"]);
 
   if (
     isValidateFirsName === false ||

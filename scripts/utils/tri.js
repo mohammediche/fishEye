@@ -6,10 +6,33 @@ const openSelectTri = () => {
   document.querySelector(".optList").classList.toggle("hidden");
   document.querySelector(".select").classList.toggle("active");
 };
+// window.addEventListener("keydown", (e) => {
+//   if (e.key === "Enter") {
+//     document.querySelector(".optList").classList.toggle("hidden");
+//     document.querySelector(".select").classList.toggle("active");
+//   }
+// });
 
-/** permet de trier les media par nombre de like, date, et ordre alphabétique **/
-const refreshMediaList = async (valueSelected) => {
-  const media = await getMediaByPhotographerId(idPhotographer, valueSelected);
-  selected.innerHTML = valueSelected;
-  return media;
-};
+const menuOption = document.querySelectorAll(".option");
+
+for (const option of menuOption) {
+  option.addEventListener("click", async (e) => {
+    let valueSelected = e.target.innerHTML;
+    const media = await getMediaByPhotographerId(idPhotographer, valueSelected);
+    selected.innerHTML = e.target.innerHTML;
+    return media;
+  });
+  /*** quand on selectionne une option avec le bouton Enter */
+  option.addEventListener("keydown", async (e) => {
+    if (e.key === "Enter") {
+      let valueSelected = e.target.innerHTML;
+      const media = await getMediaByPhotographerId(
+        idPhotographer,
+        valueSelected
+      );
+      selected.innerHTML = e.target.innerHTML;
+      document.querySelector(".optList").classList.add("hidden");
+      return media;
+    }
+  });
+}

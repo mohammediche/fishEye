@@ -7,7 +7,7 @@ function photographerFactory(photographer) {
     const article = document.createElement("article");
     let template = `   
         <a href = "./photographer.html?key=${id}" class = "centerImageLink">  
-           <img class="imagePhotographer" src = "${picture}" alt= "${name}">
+           <img class="imagePhotographer" src = "${picture}" alt= "photo de ${name}">
            <h2 class="nameOfPhotographer">${name}</h2>
         </a>  
            <h3 class="location">${city + ", " + country}</h3>

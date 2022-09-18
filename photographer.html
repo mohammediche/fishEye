@@ -19,26 +19,25 @@
     <!-- trier par  -->
     <div class="widget">
       <label for="tri">Trier par</label>
-      <div>
-        <select name="popularite" id="popularite" tabindex="-1">
+     
+        <!-- <select name="popularite" id="popularite" tabindex="-1">
           <option>Popularité</option>
           <option>Date</option>
           <option>Titre</option>
-        </select>
-        <div class="select" tabindex="0" id="select" role="button" aria-haspopup="listbox" onclick="openSelectTri()">
+        </select> -->
+        <div class="select" tabindex="0" id="select" aria-haspopup="listbox" onclick="openSelectTri()">
           <!-- Ce span sera utilisé pour afficher la valeur courante du widget -->
           <span class="value"> </span>
           <!-- Ce conteneur contiendra toutes les options disponibles pour le widget.
           Comme c'est une liste, il y sens à utiliser l'élément ul. -->
           <ul class="optList hidden" role="listbox" aria-labelledby="OrderBy">
 
-            <li class="option" onclick="refreshMediaList('Popularité')" tabindex="0" role="option" >Popularité
-            </li>
-            <li class="option" onclick="refreshMediaList('Date')"  tabindex="0" role="option" >Date</li>
-            <li class="option" onclick="refreshMediaList('Titre')"  tabindex="0" role="option" >Titre</li>
+            <li class="option"  tabindex="0" role="option" >Popularité</li>
+            <li class="option"  tabindex="0" role="option" >Date</li>
+            <li class="option"  tabindex="0" role="option" >Titre</li>
           </ul>
         </div>
-      </div>
+      
     </div>
 
     <section class="allMedia"></section>
@@ -49,10 +48,14 @@
 
 
   <div id="contact_modal">
-    <div class="modal">
+    <div class="modal" role="dialog" aria-modal="true">
       <div class="meContacter">
         <h2 class="namePhotographerContact"></h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="fermer la modale" />
+        <a onclick="closeModal()" href="#">
+          <img src="assets/icons/close.svg" alt="fermer la modale" />
+        </a>
+       
+        <!-- <button class="fermerLaModaleContact" type="button" title="Fermer la modale contact" onclick="closeModal()"></button> -->
       </div>
       <!-- novalidate sert à désactiver les messages d'erreurs auto-->
       <form name="formulaire" id="form-submit" novalidate>
@@ -60,17 +63,17 @@
         <div class="formData" data-error=" erreur, veuillez indiqué...">
           <label for="firstName">Prénom</label>
           <input class="text-control" type="text" id="firstName" name="firstName" placeholder="Votre prénom"
-            aria-labelledby="FirstName contact" aria-required="true" />
+            aria-labelledby="firstName contact" aria-required="true"/>
         </div>
         <div class="formData" data-error=" erreur, veuillez indiqué...">
           <label for="lastName">Nom</label>
           <input class="text-control" type="text" id="lastName" name="lastName" placeholder="Votre nom"
-            aria-labelledby="LastName contact" aria-required="true" />
+            aria-labelledby="lastName contact" aria-required="true" />
         </div>
         <div class="formData" data-error=" erreur, veuillez indiqué...">
           <label for="email">Email</label>
           <input class="text-control" type="email" id="email" name="email" placeholder="pseudo@exemple.com"
-            aria-labelledby="Email contact" aria-required="true" />
+            aria-labelledby="email contact" aria-required="true" />
         </div>
         <div class="formData" data-error=" erreur, veuillez indiqué...">
           <label for="message">Message</label>
@@ -83,7 +86,6 @@
     </div>
   </div>
 
-  <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/tri.js"></script>
   <script src="./scripts/pages/fetchPhotographerData.js"></script>
   <script src="./scripts/factories/photographer.js"></script>
@@ -91,6 +93,7 @@
   <script src="/scripts/utils/like.js"></script>
   <script src="/scripts/pages/lightboxProduct.js"></script>
   <script src="./scripts/factories/lightbox.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />

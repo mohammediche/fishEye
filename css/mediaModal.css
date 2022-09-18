@@ -64,6 +64,8 @@
     top: 10px;
     right: -55px;
     cursor: pointer;
+    background: transparent;
+    border: 0;
 }
 .titleMediaModal{
     font-size: 24px;

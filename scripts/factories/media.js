@@ -4,7 +4,9 @@ const mediaFactory = (media, nameOfPhotographer) => {
   const namePhotographerContact = document.querySelector(
     ".namePhotographerContact"
   );
+  const modal = document.querySelector(".modal");
   namePhotographerContact.innerHTML = `Contactez moi ${nameOfPhotographer}`;
+  modal.setAttribute("aria-labelledby", `Contactez moi ${nameOfPhotographer}`);
 
   const name = nameOfPhotographer;
   const mediaPictures = "assets/images/Sample Photos/";

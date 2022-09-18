@@ -254,12 +254,12 @@ aside {
     border-radius: 5px;
     background-color: #DB8876;
     width: 669px;
-    /*50%*/
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 35px;
     margin: auto;
+    position: relative;
 }
 
 .meContacter {
@@ -268,12 +268,44 @@ aside {
     width: 100%;
 }
 
-.meContacter img {
+/* .meContacter img {
     position: relative;
     bottom: 50px;
     cursor: pointer;
 
+} */
+.meContacter a{
+    position: absolute;
+    right: 20px;
+    top: 45px;
+    cursor: pointer;
 }
+/* .fermerLaModaleContact{
+    position: relative;
+    top: 60px;
+    padding: 0 20px;
+    background: transparent;
+    border: 0;
+    display: flex;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.fermerLaModaleContact:before,
+.fermerLaModaleContact:after{
+    background-color: #fff;
+    bottom: 0;
+    content: " ";
+    height: 68px;
+    position: absolute;
+    width: 8px;
+}
+.fermerLaModaleContact:before{
+    transform: rotate(45deg);
+}
+.fermerLaModaleContact:after{
+    transform: rotate(-45deg);
+} */
 
 .meContacter h2 {
     font-size: 64px;

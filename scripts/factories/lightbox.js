@@ -23,14 +23,15 @@ const lightboxFactory = (media, nameOfPhotographer) => {
       img.className = "imageModal";
       img.setAttribute("alt", title);
       img.setAttribute("src", mediaPictures + name + "/" + image);
+      img.setAttribute("tabindex", 0);
 
       div.appendChild(img);
     }
 
     div.innerHTML += `
           
-          <button type= "button" aria-label="fermer la modale" onclick="hideMediaModal()">
-          <img class="close-modal" src="/assets/icons/close2.svg" alt="fermer la modale" >
+          <button type= "button" class="close-modal" aria-label="fermer la modale" onclick="hideMediaModal()">
+          <img src="/assets/icons/close2.svg" alt="fermer la modale" >
           </button>
         
     
