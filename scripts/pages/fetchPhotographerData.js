@@ -59,6 +59,7 @@ const getMediaByPhotographerId = async (id, triPar) => {
       return a.date < b.date ? 1 : -1;
     });
     allMedia.innerHTML = " ";
+    console.log(trieParDate);
     // affiche les medias triés par Date (du + récent au - récent)
     trieParDate.forEach((mediaOfPhotographer) => {
       const newMediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
