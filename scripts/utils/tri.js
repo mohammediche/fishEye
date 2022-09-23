@@ -1,17 +1,18 @@
 const idPhotographer = new URLSearchParams(window.location.search).get("key");
-let selected = document.querySelector(".value");
+const selected = document.querySelector(".value");
 selected.innerHTML = "Popularité";
+const select = document.querySelector(".select");
+
 /** permet d'ouvrir et fermer le select tri **/
 const openSelectTri = () => {
   document.querySelector(".optList").classList.toggle("hidden");
   document.querySelector(".select").classList.toggle("active");
 };
-// window.addEventListener("keydown", (e) => {
-//   if (e.key === "Enter") {
-//     document.querySelector(".optList").classList.toggle("hidden");
-//     document.querySelector(".select").classList.toggle("active");
-//   }
-// });
+select.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    openSelectTri();
+  }
+});
 
 const menuOption = document.querySelectorAll(".option");
 

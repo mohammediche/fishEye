@@ -23,12 +23,9 @@ function photographerFactory(photographers, filterMedia) {
               <strong>${tagline}</strong>
             </div>  
             
-          <button class="contact_button" onclick="displayModal()" type="button" title="Contact Me">Contactez-moi</button>
-            <img class= "imagePhotographer" src= "${
-              profilPictures + portrait
-            }" alt="${name}">
-
-            <aside>
+      <button class="contact_button" onclick="displayModal()" type="button" title="Contact Me">Contactez-moi</button>
+          <img class= "imagePhotographer" src= "${profilPictures + portrait}" alt="${name}">
+           <aside>
             <span><strong class= "totalLikes">${totalLikes}</strong>♥︎</span>
             <span>${price}€/jour</span>
             </aside>
