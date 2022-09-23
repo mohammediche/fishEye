@@ -4,7 +4,7 @@ const allMedia = document.querySelector(".allMedia");
 const lightbox = document.querySelector("#mediaModal");
 /* on fetch la data qui inclus les photographers et media */
 const fetchPhotographers = async () => {
-  const response = await fetch("/data/photographers.json");
+  const response = await fetch("/fishEye/data/photographers.json");
   const results = await response.json();
   return results;
 };
@@ -18,10 +18,7 @@ const displayData = async (photographers, media) => {
   const filterMedia = media.filter((media) => {
     return media.photographerId == id;
   });
-  const photographerModel = photographerFactory(
-    filterPhotographer,
-    filterMedia
-  );
+  const photographerModel = photographerFactory(filterPhotographer, filterMedia);
   const templatePhotographer = photographerModel.getDataPhotographer();
   photographerHeaderContent.appendChild(templatePhotographer);
 
@@ -32,17 +29,11 @@ const displayData = async (photographers, media) => {
   /****************/
 
   trierParPopulariteParDefaut.forEach((mediaOfPhotographer) => {
-    const mediaModel = mediaFactory(
-      mediaOfPhotographer,
-      filterPhotographer.name
-    );
+    const mediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
     const templateMedia = mediaModel.afficheMediaPhotographer();
     allMedia.appendChild(templateMedia);
     /* lightbox */
-    const lightboxModal = lightboxFactory(
-      mediaOfPhotographer,
-      filterPhotographer.name
-    );
+    const lightboxModal = lightboxFactory(mediaOfPhotographer, filterPhotographer.name);
     const templateLightbox = lightboxModal.getlightbox();
     lightbox.appendChild(templateLightbox);
   });
@@ -70,10 +61,7 @@ const getMediaByPhotographerId = async (id, triPar) => {
     allMedia.innerHTML = " ";
     // affiche les medias triés par Date (du + récent au - récent)
     trieParDate.forEach((mediaOfPhotographer) => {
-      const newMediaModel = mediaFactory(
-        mediaOfPhotographer,
-        filterPhotographer.name
-      );
+      const newMediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
       const newTemplateMedia = newMediaModel.afficheMediaPhotographer(); //renvoi l'ancienne data
       allMedia.appendChild(newTemplateMedia);
     });
@@ -85,10 +73,7 @@ const getMediaByPhotographerId = async (id, triPar) => {
     allMedia.innerHTML = " ";
     // affiche les medias triés par Titre ( de A à Z)
     trieParTitre.forEach((mediaOfPhotographer) => {
-      const newMediaModel = mediaFactory(
-        mediaOfPhotographer,
-        filterPhotographer.name
-      );
+      const newMediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
       const newTemplateMedia = newMediaModel.afficheMediaPhotographer(); //renvoi l'ancienne data
       allMedia.appendChild(newTemplateMedia);
     });
@@ -100,10 +85,7 @@ const getMediaByPhotographerId = async (id, triPar) => {
     allMedia.innerHTML = " ";
     // affiche les medias triés par Popularité (+likes au -likes)
     triParPopularite.forEach((mediaOfPhotographer) => {
-      const newMediaModel = mediaFactory(
-        mediaOfPhotographer,
-        filterPhotographer.name
-      );
+      const newMediaModel = mediaFactory(mediaOfPhotographer, filterPhotographer.name);
       const newTemplateMedia = newMediaModel.afficheMediaPhotographer(); //renvoi l'ancienne data
       allMedia.appendChild(newTemplateMedia);
     });

@@ -1,5 +1,5 @@
 async function getPhotographers() {
-  const response = await fetch("/data/photographers.json");
+  const response = await fetch("/fishEye/data/photographers.json");
   const results = await response.json();
 
   return results;
